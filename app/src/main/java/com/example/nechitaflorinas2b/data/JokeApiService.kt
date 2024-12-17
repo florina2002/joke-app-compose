@@ -5,13 +5,10 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface JokeApiService {
-    @GET("joke/Any")
-    suspend fun getJokes(@Query("amount") amount: Int = 10): JokeResponse
-
     @GET("joke/{category}")
     suspend fun getJokes(
-        @Path("category") category: String, // Dynamic category
-        @Query("amount") amount: Int = 10  // Default amount of jokes
+        @Path("category") category: String,
+        @Query("amount") amount: Int = 10
     ): JokeResponse
 }
 
